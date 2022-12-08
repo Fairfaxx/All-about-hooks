@@ -29,9 +29,13 @@ export const useFetch = (url) => {
 
   const { data, isLoading, hasErrors } = state;
 
+  const onLoadMore = () => {
+    getQuotes();
+  };
+
   useEffect(() => {
     getQuotes();
   }, []);
 
-  return { data, isLoading, hasErrors };
+  return { data, isLoading, hasErrors, onLoadMore };
 };
