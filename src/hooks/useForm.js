@@ -15,6 +15,7 @@ export const useForm = (initialForm = {}) => {
   };
   //  username: '', email: '', password: '' }
   return {
+    ...formState,
     formState,
     onResetForm,
     handleChange,
