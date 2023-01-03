@@ -3,18 +3,7 @@ import { TodoAdd } from './components/TodoAdd';
 import { TodoList } from './components/TodoList';
 import { todoReducer } from './todoReducer';
 
-const initialState = [
-  // {
-  //   id: new Date().getTime(),
-  //   description: 'Go to gym',
-  //   done: false,
-  // },
-  // {
-  //   id: new Date().getTime() * 3,
-  //   description: 'Buy groceries',
-  //   done: false,
-  // },
-];
+const initialState = [];
 
 const init = () => {
   return JSON.parse(localStorage.getItem('todos')) || [];
@@ -43,7 +32,6 @@ export const TodoApp = () => {
   };
 
   const onToggleTodo = (id) => {
-    console.log({ id });
     dispatch({
       type: 'UPDATE_TODO',
       payload: id,
@@ -53,12 +41,13 @@ export const TodoApp = () => {
   return (
     <>
       <h1>
-        Todo App: 10 <small>Pendant: 2</small>
+        Todo App --{'>'} <small>Pendant: {todos.length}</small>
       </h1>
 
       <hr />
 
       <div className="row">
+        <h4>Click on the ToDo you already done</h4>
         <div className="col-7">
           <TodoList
             todos={todos}
